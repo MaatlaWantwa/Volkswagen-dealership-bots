@@ -250,7 +250,7 @@
       font-weight: 800;
     }
 
-    /* inventory quick view */
+    /* inventory quick view with pictures */
     .inventory {
       background: #eef3f8;
       padding: 3rem 0;
@@ -258,43 +258,87 @@
 
     .inventory-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
       margin: 2.5rem 0 1rem;
     }
 
     .inv-item {
       background: white;
-      border-radius: 40px;
-      padding: 1.2rem 0.8rem;
+      border-radius: 20px;
+      padding: 1.2rem;
       text-align: center;
       font-weight: 500;
       border: 1px solid #d7e1eb;
-      transition: 0.1s linear;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
     }
 
     .inv-item:hover {
-      background: #001a2c;
-      color: white;
-      border-color: #001a2c;
+      transform: translateY(-8px);
+      border-color: #00a3d9;
+      box-shadow: 0 12px 24px rgba(0,163,217,0.2);
+    }
+
+    .inv-item .car-image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .inv-item:hover .car-image {
+      transform: scale(1.05);
     }
 
     .inv-item .model {
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       display: block;
+      color: #001a2c;
     }
 
     .inv-item .price {
       color: #00a3d9;
       font-weight: 600;
-      margin-top: 0.2rem;
+      font-size: 1.1rem;
+      margin-top: 0.3rem;
     }
 
-    .inv-item:hover .price {
-      color: #b0d9f0;
+    .inv-item .badge {
+      display: inline-block;
+      background: #00a3d9;
+      color: white;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .inv-item:hover .badge {
+      background: #001a2c;
+    }
+
+    .inv-item .specs {
+      font-size: 0.8rem;
+      color: #6b7f93;
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .inv-item .specs span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     /* botswana stamp */
@@ -399,6 +443,22 @@
       .logo-area {
         flex-wrap: wrap;
       }
+      .inventory-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      .inv-item .car-image {
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .inventory-grid {
+        grid-template-columns: 1fr;
+      }
+      .inv-item .car-image {
+        height: 180px;
+      }
     }
   </style>
 </head>
@@ -486,7 +546,7 @@
       </div>
     </section>
 
-    <!-- quick inventory + botswana stamp -->
+    <!-- inventory with actual pictures -->
     <section class="inventory">
       <div class="container">
         <div class="section-title" style="font-size:1.9rem;">
@@ -494,24 +554,58 @@
         </div>
         <div class="inventory-grid">
           <div class="inv-item" onclick="showCarDetails('Golf 8', 'P 399,900')">
+            <img src="https://images.unsplash.com/photo-1629895124999-e90b290b7038?w=400&h=300&fit=crop&q=80" alt="Volkswagen Golf 8" class="car-image" loading="lazy">
             <span class="model">Golf 8</span> 
             <span class="price">P 399,900</span>
+            <div class="specs">
+              <span>⚡ 1.4 TSI</span>
+              <span>🚗 5 doors</span>
+            </div>
+            <span class="badge">🔥 hot deal</span>
           </div>
+          
           <div class="inv-item" onclick="showCarDetails('Tiguan', 'P 559,000')">
+            <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&h=300&fit=crop&q=80" alt="Volkswagen Tiguan" class="car-image" loading="lazy">
             <span class="model">Tiguan</span> 
             <span class="price">P 559,000</span>
+            <div class="specs">
+              <span>⚡ 2.0 TDI</span>
+              <span>🛡️ 4Motion</span>
+            </div>
+            <span class="badge">⚡ best seller</span>
           </div>
+          
           <div class="inv-item" onclick="showCarDetails('Amarok', 'P 629,000')">
+            <img src="https://images.unsplash.com/photo-1625209098822-1200e705968e?w=400&h=300&fit=crop&q=80" alt="Volkswagen Amarok" class="car-image" loading="lazy">
             <span class="model">Amarok</span> 
             <span class="price">P 629,000</span>
+            <div class="specs">
+              <span>⚡ 3.0 TDI</span>
+              <span>🧭 4x4</span>
+            </div>
+            <span class="badge">💪 tough</span>
           </div>
+          
           <div class="inv-item" onclick="showCarDetails('Polo', 'P 299,000')">
+            <img src="https://images.unsplash.com/photo-1629895124999-e90b290b7038?w=400&h=300&fit=crop&q=80" alt="Volkswagen Polo" class="car-image" loading="lazy">
             <span class="model">Polo</span> 
             <span class="price">P 299,000</span>
+            <div class="specs">
+              <span>⚡ 1.0 TSI</span>
+              <span>🚗 5 doors</span>
+            </div>
+            <span class="badge">✨ city car</span>
           </div>
+          
           <div class="inv-item" onclick="showCarDetails('ID.4', 'P 789,000')">
+            <img src="https://images.unsplash.com/photo-1610557532901-2f36d38486f6?w=400&h=300&fit=crop&q=80" alt="Volkswagen ID.4" class="car-image" loading="lazy">
             <span class="model">ID.4</span> 
             <span class="price">P 789,000</span>
+            <div class="specs">
+              <span>⚡ electric</span>
+              <span>🔋 520 km</span>
+            </div>
+            <span class="badge">🌱 eco</span>
           </div>
         </div>
 
@@ -592,7 +686,7 @@
       alert(`🌟 Volkswagen Botswana - ${feature}\n\nDas Auto. Run fast. Engineered for you.`);
     }
 
-    // Car details
+    // Car details with images
     function showCarDetails(model, price) {
       const choice = confirm(`🚗 ${model}\n💰 Price: ${price}\n\n📌 Would you like to schedule a test drive for this vehicle?`);
       if (choice) {
