@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VW Botswana · Das Auto</title>
+  <!-- Fast, clean, VW‑inspired dealership -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f6;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      color: #1a1e24;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* brand speed & clean grid */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+    }
+
+    /* header – premium VW vibe */
+    .header {
+      background: #001a2c;  /* deep VW navy */
+      padding: 1.2rem 0;
+      border-bottom: 4px solid #00a3d9;  /* VW signature blue */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .header .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .vw-badge {
+      background: #ffffff;
+      color: #001a2c;
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: -0.5px;
+      padding: 0.1rem 0.6rem 0.1rem 0.2rem;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .vw-badge span {
+      background: #001a2c;
+      color: white;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      margin-left: 0.2rem;
+    }
+
+    .motto {
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      color: #b6d0e0;
+      text-transform: uppercase;
+      border-left: 2px solid #00a3d9;
+      padding-left: 1rem;
+      margin-left: 0.5rem;
+    }
+
+    .motto strong {
+      color: white;
+      font-weight: 700;
+      background: #00334d;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-left: 0.4rem;
+    }
+
+    .btn-cta {
+      background: #00a3d9;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 0.6rem 1.8rem;
+      border-radius: 40px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0,163,217,0.25);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-cta:hover {
+      background: #0085b3;
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,163,217,0.35);
+    }
+
+    /* hero – fast & bold */
+    .hero {
+      background: linear-gradient(135deg, #f0f5fa 0%, #dae3ec 100%);
+      padding: 3.5rem 0 4rem;
+      border-bottom: 1px solid #d0dbe6;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .hero-content {
+      flex: 2 1 360px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.3rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #001a2c;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-content h1 .das {
+      background: #001a2c;
+      color: white;
+      padding: 0 0.8rem;
+      border-radius: 60px;
+      display: inline-block;
+      font-size: 2.6rem;
+      margin-right: 0.2rem;
+    }
+
+    .hero-content .tagline {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #2a3b4c;
+      margin-bottom: 2rem;
+      border-left: 5px solid #00a3d9;
+      padding-left: 1.2rem;
+    }
+
+    .hero-image {
+      flex: 1 1 260px;
+      background: #001a2c;
+      border-radius: 60px 20px 60px 20px;
+      padding: 1.8rem 1.2rem;
+      text-align: center;
+      color: white;
+      box-shadow: 0 20px 30px -8px rgba(0,0,0,0.2);
+    }
+
+    .hero-image svg {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .hero-image p {
+      margin-top: 0.8rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: #aac7de;
+    }
+
+    /* dealership highlights – fast cards */
+    .highlights {
+      padding: 3rem 0;
+      background: white;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #001a2c;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title small {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #3f5a6f;
+      margin-left: 1rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .card {
+      background: #f9fbfd;
+      border-radius: 30px;
+      padding: 1.8rem 1.2rem;
+      text-align: center;
+      transition: 0.2s ease;
+      border: 1px solid #e2eaf2;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #00a3d9;
+      box-shadow: 0 14px 24px rgba(0,163,217,0.12);
+    }
+
+    .card h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #001a2c;
+      letter-spacing: -0.5px;
+    }
+
+    .card p {
+      color: #2e485e;
+      font-weight: 500;
+      margin-top: 0.2rem;
+    }
+
+    .card .v {
+      color: #00a3d9;
+      font-weight: 800;
+    }
+
+    /* inventory quick view */
+    .inventory {
+      background: #eef3f8;
+      padding: 3rem 0;
+    }
+
+    .inventory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.8rem;
+      margin: 2.5rem 0 1rem;
+    }
+
+    .inv-item {
+      background: white;
+      border-radius: 40px;
+      padding: 1.2rem 0.8rem;
+      text-align: center;
+      font-weight: 500;
+      border: 1px solid #d7e1eb;
+      transition: 0.1s linear;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      cursor: pointer;
+    }
+
+    .inv-item:hover {
+      background: #001a2c;
+      color: white;
+      border-color: #001a2c;
+    }
+
+    .inv-item .model {
+      font-weight: 700;
+      font-size: 1.2rem;
+      display: block;
+    }
+
+    .inv-item .price {
+      color: #00a3d9;
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    .inv-item:hover .price {
+      color: #b0d9f0;
+    }
+
+    /* botswana stamp */
+    .location-stamp {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0 0.5rem;
+      background: white;
+      padding: 1rem 1.8rem;
+      border-radius: 100px;
+      border: 1px solid #d0dbe6;
+      align-items: center;
+    }
+
+    .location-stamp span {
+      font-weight: 500;
+      color: #001a2c;
+    }
+
+    .location-stamp .flag {
+      background: #001a2c;
+      color: white;
+      padding: 0.2rem 1.5rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    /* footer */
+    .footer {
+      background: #0a1c2b;
+      color: #b6c9da;
+      padding: 2.8rem 0;
+      margin-top: auto;
+      border-top: 4px solid #00a3d9;
+    }
+
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer .brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .footer .brand em {
+      color: #00a3d9;
+      font-style: normal;
+    }
+
+    .footer small {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .footer .social {
+      display: flex;
+      gap: 1.8rem;
+    }
+
+    .footer .social a {
+      color: #b6c9da;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.1s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.2rem;
+      cursor: pointer;
+    }
+
+    .footer .social a:hover {
+      color: white;
+      border-bottom-color: #00a3d9;
+    }
+
+    /* responsiveness */
+    @media (max-width: 700px) {
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .hero-content h1 .das {
+        font-size: 2rem;
+      }
+      .header .container {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: start;
+      }
+      .motto {
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
+      }
+      .logo-area {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo-area">
+        <div class="vw-badge">
+          VW <span>⚡</span>
+        </div>
+        <div class="motto">
+          DAS AUTO <strong>BOTSWANA</strong>
+        </div>
+      </div>
+      <div>
+        <a href="#" onclick="openTestDrive()" class="btn-cta">🚗  test drive</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- hero section: das auto · botswana -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>
+            <span class="das">Das</span> Auto<br>
+            <span style="font-weight: 300; font-size: 2.4rem;">Botswana</span>
+          </h1>
+          <div class="tagline">
+            <span style="background: #001a2c; color: white; padding: 0.2rem 1.2rem; border-radius: 40px;">⚡ run fast</span> 
+            <span style="margin-left: 0.6rem;">·  engineered for you</span>
+          </div>
+          <p style="font-size: 1.2rem; color: #1c364a; max-width: 500px; margin-bottom: 2rem;">
+            Gaborone · Francistown · Maun · <strong>#DasAuto</strong>
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1.2rem;">
+            <a href="#" onclick="openInventory()" class="btn-cta" style="background: #001a2c; box-shadow: none;">🔍  inventory</a>
+            <a href="#" onclick="openContact()" class="btn-cta" style="background: transparent; border: 2px solid #001a2c; color: #001a2c; box-shadow: none;">📞  contact</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <!-- VW silhouette / botswana flag hint -->
+          <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="55" r="18" fill="#E6F0F8" stroke="#00a3d9" stroke-width="3"/>
+            <circle cx="160" cy="55" r="18" fill="#E6F0F8" stroke="#00a3d9" stroke-width="3"/>
+            <rect x="44" y="35" width="112" height="40" fill="#001a2c" rx="6"/>
+            <path d="M60 55 L70 45 L90 65 L110 35 L130 60 L140 45" stroke="#00a3d9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="70" y="95" fill="white" font-size="18" font-weight="700" font-family="Inter">BOTSWANA</text>
+            <rect x="10" y="108" width="180" height="6" fill="#00a3d9" rx="3"/>
+          </svg>
+          <p>⚡  das auto ·  fast & reliable</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- highlights: VW core values -->
+    <section class="highlights">
+      <div class="container">
+        <div class="section-title">
+          Volkswagen Botswana <small>· Das Auto</small>
+        </div>
+        <div class="card-grid">
+          <div class="card" onclick="showFeature('Performance')">
+            <h3>⚡</h3>
+            <p><span class="v">VW</span> performance</p>
+            <span style="font-size:0.8rem; color:#2d597a;">Tiguan · Golf</span>
+          </div>
+          <div class="card" onclick="showFeature('Local Service')">
+            <h3>🌍</h3>
+            <p><span class="v">local</span> service</p>
+            <span style="font-size:0.8rem; color:#2d597a;">Gaborone & Maun</span>
+          </div>
+          <div class="card" onclick="showFeature('Warranty')">
+            <h3>🔧</h3>
+            <p><span class="v">Das</span> warranty</p>
+            <span style="font-size:0.8rem; color:#2d597a;">5 years / 100k km</span>
+          </div>
+          <div class="card" onclick="showFeature('Test Drive')">
+            <h3>🚀</h3>
+            <p><span class="v">run fast</span></p>
+            <span style="font-size:0.8rem; color:#2d597a;">24h test drive</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- quick inventory + botswana stamp -->
+    <section class="inventory">
+      <div class="container">
+        <div class="section-title" style="font-size:1.9rem;">
+          ⚡  das auto ·  available now
+        </div>
+        <div class="inventory-grid">
+          <div class="inv-item" onclick="showCarDetails('Golf 8', 'P 399,900')">
+            <span class="model">Golf 8</span> 
+            <span class="price">P 399,900</span>
+          </div>
+          <div class="inv-item" onclick="showCarDetails('Tiguan', 'P 559,000')">
+            <span class="model">Tiguan</span> 
+            <span class="price">P 559,000</span>
+          </div>
+          <div class="inv-item" onclick="showCarDetails('Amarok', 'P 629,000')">
+            <span class="model">Amarok</span> 
+            <span class="price">P 629,000</span>
+          </div>
+          <div class="inv-item" onclick="showCarDetails('Polo', 'P 299,000')">
+            <span class="model">Polo</span> 
+            <span class="price">P 299,000</span>
+          </div>
+          <div class="inv-item" onclick="showCarDetails('ID.4', 'P 789,000')">
+            <span class="model">ID.4</span> 
+            <span class="price">P 789,000</span>
+          </div>
+        </div>
+
+        <!-- Botswana location & motto stamp -->
+        <div class="location-stamp">
+          <span onclick="showLocation('Gaborone')" style="cursor: pointer;">📍  Gaborone</span>
+          <span onclick="showLocation('Francistown')" style="cursor: pointer;">📍  Francistown</span>
+          <span onclick="showLocation('Maun')" style="cursor: pointer;">📍  Maun</span>
+          <span class="flag" onclick="showBotswanaInfo()" style="cursor: pointer;">🇧🇼  BOTSWANA</span>
+          <span style="font-weight: 600; background: #001a2c; color: white; padding: 0.2rem 1.2rem; border-radius: 40px;">DAS AUTO</span>
+          <span style="font-weight: 300;" onclick="showMotto()" style="cursor: pointer;">⚡  run fast</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="brand">
+        <em>VW</em> Botswana · Das Auto
+      </div>
+      <div class="social">
+        <a href="#" onclick="openSocial('Instagram')">Instagram</a>
+        <a href="#" onclick="openSocial('Facebook')">Facebook</a>
+        <a href="#" onclick="openSocial('WhatsApp')">WhatsApp</a>
+        <a href="#" onclick="openSocial('X')">X</a>
+      </div>
+      <small>
+        <span>© 2026 Volkswagen Botswana · Das Auto</span> 
+        <span style="margin:0 1rem;">|</span> 
+        <span>run fast · engineered for life</span>
+      </small>
+      <small style="opacity: 0.6;">#DasAuto ·  VW Botswana dealership</small>
+    </div>
+  </footer>
+
+  <!-- interactive functions -->
+  <script>
+    // Helper function to open links in new tab
+    function openLink(url) {
+      if (url) {
+        window.open(url, '_blank');
+      }
+    }
+
+    // Test drive prompt
+    function openTestDrive() {
+      const name = prompt("🚗 Enter your full name for a test drive:");
+      if (name) {
+        const phone = prompt("📱 Enter your phone number:");
+        if (phone) {
+          alert(`✅ Thank you ${name}! We'll contact you at ${phone} within 2 hours to schedule your test drive.`);
+        }
+      }
+    }
+
+    // Inventory prompt
+    function openInventory() {
+      const model = prompt("🔍 Which VW model are you interested in? (Golf, Tiguan, Polo, Amarok, ID.4)");
+      if (model) {
+        alert(`📋 Great choice! We have the ${model} in stock. Visit our showroom for a test drive.`);
+      }
+    }
+
+    // Contact prompt
+    function openContact() {
+      const name = prompt("📞 Enter your name:");
+      if (name) {
+        const message = prompt("✉️ What's your message?");
+        if (message) {
+          alert(`✅ Thank you ${name}! Your message "${message}" has been sent. We'll reply within 24 hours.`);
+        }
+      }
+    }
+
+    // Feature cards
+    function showFeature(feature) {
+      alert(`🌟 Volkswagen Botswana - ${feature}\n\nDas Auto. Run fast. Engineered for you.`);
+    }
+
+    // Car details
+    function showCarDetails(model, price) {
+      const choice = confirm(`🚗 ${model}\n💰 Price: ${price}\n\n📌 Would you like to schedule a test drive for this vehicle?`);
+      if (choice) {
+        openTestDrive();
+      }
+    }
+
+    // Location info
+    function showLocation(city) {
+      alert(`📍 Volkswagen Botswana - ${city}\n\n🏢 Showroom Hours: Mon-Fri 8:00-18:00\n📞 Call us: +267 1234 5678\n\nDas Auto. Run fast.`);
+    }
+
+    // Botswana info
+    function showBotswanaInfo() {
+      alert(`🇧🇼 Volkswagen Botswana\n\n🏆 Official VW dealership\n📍 Gaborone, Francistown, Maun\n🚗 Das Auto - engineering excellence\n\n🇧🇼 Proudly serving Botswana since 1978`);
+    }
+
+    // Motto
+    function showMotto() {
+      alert('⚡ DAS AUTO · RUN FAST\n\n🇩🇪 German engineering\n🇧🇼 Botswana spirit\n\nVolkswagen Botswana - built for the road ahead.');
+    }
+
+    // Social media
+    function openSocial(platform) {
+      const socialLinks = {
+        'Instagram': 'https://www.instagram.com/volkswagen_botswana',
+        'Facebook': 'https://www.facebook.com/VolkswagenBotswana',
+        'WhatsApp': 'https://wa.me/26712345678',
+        'X': 'https://twitter.com/VW_Botswana'
+      };
+      
+      const url = socialLinks[platform];
+      if (url) {
+        window.open(url, '_blank');
+      }
+      alert(`🌐 Opening ${platform} for Volkswagen Botswana`);
+    }
+
+    // Console welcome
+    console.log('⚡ Volkswagen Botswana · Das Auto · Run fast');
+    console.log('🚗 Interactive dealership website loaded successfully!');
+  </script>
+</body>
+</html>
